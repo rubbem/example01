@@ -3,21 +3,22 @@ import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import './App.css';
 import Routes from "./Routes";
+import  FilterableProductTable from "./containers/FilterableProductTable";
 
 class App extends Component {
-    
+
   render() {
+    const PRODUCTS = [
+  {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+  {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+  {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+  {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
+  {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
+  {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+];
         return (
       <div className="container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">ReactApp</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-        </Navbar>
-        <Routes />
+          <FilterableProductTable products={PRODUCTS} />
       </div>
     );
   }

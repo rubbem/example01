@@ -41,6 +41,7 @@ class Table extends Component {
    handleDeleteButtonClick = (onClick) => {
     // it's not necessary to implement this function if you have no any process before onClick
     console.log('This is my custom function for DeleteButton click event');
+    this.removeCharacter(onClick);
     onClick();
   }
 
@@ -56,7 +57,7 @@ createCustomDeleteButton = (onClick) => {
 }
 
 onAfterDeleteRow(rowKeys, rows) {
-   this.removeCharacter (rowKeys);
+  
   alert('The rowkey you drop: ' + rowKeys);
 }
     
@@ -75,7 +76,7 @@ onAfterDeleteRow(rowKeys, rows) {
             <table>
 
         
- <BootstrapTable selectRow={ selectRow } data={characterData} removeCharacter={removeCharacter} options={ options } striped hover deleteRow>
+ <BootstrapTable selectRow={ selectRow } data={characterData}  options={ options } striped hover deleteRow>
       <TableHeaderColumn isKey dataField='name'>Nome</TableHeaderColumn>
       <TableHeaderColumn dataField='job'>Profissão</TableHeaderColumn>
   </BootstrapTable>
